@@ -1,3 +1,8 @@
+// Example helpers (optional) — place at top of server/routes/expenses.ts
+const ok = <T>(c: any, data: T, status = 200) => c.json({ data }, status);
+const err = (c: any, message: string, status = 400) =>
+  c.json({ error: { message } }, status);
+
 // server/routes/expenses.ts
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
