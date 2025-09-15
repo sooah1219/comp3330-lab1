@@ -1,0 +1,63 @@
+curl -i -X PUT http://localhost:5173/api/expenses/1 \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Groceries (weekly)", "amount":40}'
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Response-Time: 1ms
+Date: Fri, 12 Sep 2025 21:36:28 GMT
+Content-Length: 61
+
+{"expense":{"id":1,"title":"Groceries (weekly)","amount":40}}%  
+
+
+
+curl -i -X PATCH http://localhost:5173/api/expenses/1 \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Coffee beans"}'
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Response-Time: 2ms
+Date: Fri, 12 Sep 2025 21:39:10 GMT
+Content-Length: 55
+
+{"expense":{"id":1,"title":"Coffee beans","amount":40}}%   
+
+
+curl -i -X PATCH http://localhost:5173/api/expenses/1 \
+  -H "Content-Type: application/json" \
+  -d '{"amount":99}'
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Response-Time: 2ms
+Date: Fri, 12 Sep 2025 21:40:06 GMT
+Content-Length: 55
+
+{"expense":{"id":1,"title":"Coffee beans","amount":99}}%  
+
+
+curl -i -X PATCH http://localhost:5173/api/expenses/1 \
+  -H "Content-Type: application/json" \
+  -d '{}'
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Response-Time: 2ms
+Date: Fri, 12 Sep 2025 21:45:37 GMT
+Content-Length: 23
+
+{"error":"Empty Body!"}%     
+
+
+
+ curl -i -X PUT http://localhost:5173/api/expenses/999 \
+  -H "Content-Type: application/json" \
+  -d '{"title":"X", "amount":1}'
+
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Response-Time: 1ms
+Date: Fri, 12 Sep 2025 21:54:50 GMT
+Content-Length: 292
+
+
+{"success":false,"error":{"name":"ZodError","message":"[\n  {\n    \"origin\": \"string\",\n    \"code\": \"too_small\",\n    \"minimum\": 3,\n    \"inclusive\": true,\n    \"path\": [\n      \"title\"\n    ],\n    \"message\": \"Too small: expected string to have >=3 characters\"\n  }\n]"}}%  
