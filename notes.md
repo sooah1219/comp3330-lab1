@@ -19,3 +19,9 @@ Lab3
 
 - I learned the difference between PUT(full update) and Patch(partial update).
 - I learned how to add extra validation.
+
+Lab4
+
+- I learned about the Neon Postgres database and a drizzle ORM schema.
+- I got stuck finding the HTTP connection string in Neon, so I just used one starting with "postgresql://" instead of "https://" in the .env file, but it worked. (I'm still not sure if that's ok)
+- I learned about how to test the database-backend API with curl.
