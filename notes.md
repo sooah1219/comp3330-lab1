@@ -25,3 +25,9 @@ Lab4
 - I learned about the Neon Postgres database and a drizzle ORM schema.
 - I got stuck finding the HTTP connection string in Neon, so I just used one starting with "postgresql://" instead of "https://" in the .env file, but it worked. (I'm still not sure if that's ok)
 - I learned about how to test the database-backend API with curl.
+
+Lab5
+
+- I learned about how to create Vite React app and run.
+- I learned about how to set up the tailwindCSS.
+- I learned how to initialize ShadCN UI and generate components.

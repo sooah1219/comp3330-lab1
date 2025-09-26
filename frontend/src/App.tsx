@@ -1,6 +1,4 @@
-import { AppCard } from './components/ui/Appcard'
-
-import './App.css'
+import { AppCard } from "./components/AppCard";
 
 export default function App() {
   return (

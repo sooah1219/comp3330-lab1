@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 
 export function AppCard() {
   return (
