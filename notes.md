@@ -38,3 +38,9 @@ Lab 6
 - "Typescript:Select Typescript version" -> I changed to the Use Workspace version.
 - Another error was "cannot find module @lib/utils" -> I resolved this to change the alias @ path
 - In the tsconfig.app.json file, I changed the paths from "@" : ["./src/*] to "@/_" : ["./src/_]
+
+Lab 7
+
+- I learned how to configure QueryClientProvider in a Vite React app.
+- how to fetch expenses with useQuery and display them.
+- how to mutate data with useMutation and invalidate queries
