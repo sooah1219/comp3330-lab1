@@ -44,3 +44,9 @@ Lab 7
 - I learned how to configure QueryClientProvider in a Vite React app.
 - how to fetch expenses with useQuery and display them.
 - how to mutate data with useMutation and invalidate queries
+
+Lab 8
+
+- I learned how to Install and configure TanStack Router in a Vite React app.
+- I learned how to navigate between routes with <Link>.
+- I learned how to create nested routes for list, detail, and new item pages.

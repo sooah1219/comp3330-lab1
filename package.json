@@ -11,6 +11,7 @@
     "db:studio": "drizzle-kit studio"
   },
   "devDependencies": {
+    "@tanstack/router-plugin": "^1.132.33",
     "@types/bun": "latest",
     "dotenv": "^17.2.2",
     "drizzle-kit": "^0.31.4"

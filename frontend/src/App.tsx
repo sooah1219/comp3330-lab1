@@ -1,22 +1,21 @@
-import { AddExpenseForm } from "./components/AddExpenseForm";
-// import { AppCard } from "./components/AppCard";
-import { ExpensesList } from "./components/ExpensesList";
-import { ThemeToggle } from "./components/theme-toggle";
+import { Link, Outlet } from "@tanstack/react-router";
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-3xl p-6">
-        <h1 className="text-3xl font-bold">COMP3330 – Frontend Setup</h1>
-        <nav className="flex items-center gap-4">
-            {/* links… */}
-            <ThemeToggle />
+    <main className="min-h-screen bg-gray-50 text-gray-900">
+      <div className="mx-auto max-w-4xl p-6">
+        <header className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Expenses App</h1>
+          <nav className="flex gap-4 text-sm">
+            <Link to="/">Home</Link>
+            <Link to="/expenses">Expenses</Link>
+            <Link to="/expenses/new">New</Link>
           </nav>
-        <p className="mt-2 text-sm text-muted-foreground">Vite • React • Tailwind • ShadCN</p>
-        {/* <AppCard /> */}
-        <AddExpenseForm />
-        <ExpensesList />
+        </header>
+        <div className="mt-6">
+          <Outlet />
+        </div>
       </div>
     </main>
-  )
+  );
 }

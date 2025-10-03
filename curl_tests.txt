@@ -73,3 +73,30 @@ Date: Sat, 27 Sep 2025 06:13:46 GMT
 Content-Length: 51
 
 {"expenses":[{"id":2,"title":"Books","amount":50}]}%   
+
+
+lab 7
+➜  comp3330-expensetracker git:(main) ✗ curl -i http://localhost:3000/api/expenses
+{"expenses":[{"id":4,"title":"Toys","amount":10},{"id":5,"title":"Cups","amount":5},{"id":6,"title":"test","amount":7},{"id":2,"title":"Coffee beans","amount":50},{"id":7,"title":"test","amount":11}]}%  
+
+lab 8
+➜  comp3330-expensetracker git:(main) ✗ curl -i http://localhost:3000/api/expenses
+HTTP/1.1 200 OK
+Vary: Origin
+Content-Type: application/json
+X-Response-Time: 116ms
+Date: Fri, 03 Oct 2025 21:31:09 GMT
+Content-Length: 241
+
+{"expenses":[{"id":4,"title":"Toys","amount":10},{"id":5,"title":"Cups","amount":5},{"id":6,"title":"test","amount":7},{"id":2,"title":"Coffee beans","amount":50},{"id":7,"title":"test","amount":11},{"id":8,"title":"new test","amount":444}]}%  
+
+
+➜  comp3330-expensetracker git:(main) ✗ curl -i -X DELETE http://localhost:3000/api/expenses/8  
+HTTP/1.1 200 OK
+Vary: Origin
+Content-Type: application/json
+X-Response-Time: 116ms
+Date: Fri, 03 Oct 2025 21:32:02 GMT
+Content-Length: 52
+
+{"deleted":{"id":8,"title":"new test","amount":444}}%  
