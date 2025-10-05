@@ -2,7 +2,9 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { authRoute } from "./auth/kinde";
 import { expensesRoute } from "./routes/expenses";
+import { secureRoute } from "./routes/secure";
 
 export const app = new Hono();
 
@@ -32,3 +34,7 @@ app.get("/", (c) => c.json({ message: "OK" }));
 app.get("/health", (c) => c.json({ status: "healthy" }));
 
 app.route("/api/expenses", expensesRoute);
+app.route("/api/auth", authRoute);
+app.route("/api/secure", secureRoute);
+
+export default app;

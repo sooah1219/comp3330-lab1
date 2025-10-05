@@ -50,3 +50,9 @@ Lab 8
 - I learned how to Install and configure TanStack Router in a Vite React app.
 - I learned how to navigate between routes with <Link>.
 - I learned how to create nested routes for list, detail, and new item pages.
+
+Lab 9
+
+- Server-side auth with SDK :Moved the OAuth/OIDC flow to the backend (Hono). The server calls 'login()' → redirects to Kinde, then 'handleRedirectToApp()' on '/api/auth/callback' to validate the code, verify state/PKCE, and store tokens via a SessionManager.
+- cookie vs localStorage : Tokens are kept in HTTPOnly cookies (set in the server), protecting them from XSS and enabling same-origin credential flow through the Vite proxy. Avoids exposing access/refresh tokens to frontend JavaScript.
+- SDK simplified URL construction, discovery (issuer/keys), code ↔ token exchange, refresh token rotation, and user profile retrieval ('getUserProfile'). Also centralizes logout so both app session and IdP session can be cleared.

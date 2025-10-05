@@ -100,3 +100,15 @@ Date: Fri, 03 Oct 2025 21:32:02 GMT
 Content-Length: 52
 
 {"deleted":{"id":8,"title":"new test","amount":444}}%  
+
+lab 9
+ ✗ curl -i http://localhost:5173/api/secure/profile
+HTTP/1.1 401 Unauthorized
+vary: Origin
+content-type: application/json
+x-response-time: 6ms
+date: Sun, 05 Oct 2025 23:22:34 GMT
+content-length: 24
+connection: keep-alive
+
+{"error":"Unauthorized"}% 

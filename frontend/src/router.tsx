@@ -46,7 +46,7 @@ const expenseNewRoute = createRoute({
 });
 
 function ExpenseDetailWrapper() {
-  const { id } = useParams({ from: expenseDetailRoute.id }); // string으로 들어옴
+  const { id } = useParams({ from: expenseDetailRoute.id });
   return <ExpenseDetailPage id={Number(id)} />;
 }
 
@@ -65,6 +65,13 @@ const routeTree = rootRoute.addChildren([
 ]);
 
 const router = createRouter({ routeTree });
+
+router.update({
+  defaultNotFoundComponent: () => <p>Page not found</p>,
+  defaultErrorComponent: ({ error }) => (
+    <p>Error: {(error as Error).message}</p>
+  ),
+});
 
 export function AppRouter() {
   return <RouterProvider router={router} />;
