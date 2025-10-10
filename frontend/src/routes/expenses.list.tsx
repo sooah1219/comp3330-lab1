@@ -1,18 +1,24 @@
 // /frontend/src/routes/expenses.list.tsx
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 
-export type Expense = { id: number; title: string; amount: number };
+export type Expense = {
+  id: number;
+  title: string;
+  amount: number;
+  fileUrl: string | null;
+};
 
 // Use "/api" if you configured a Vite proxy in dev; otherwise use
 // const API = 'http://localhost:3000/api'
 const API = "/api";
 
 export default function ExpensesListPage() {
+  const qc = useQueryClient();
   const { data, isLoading, isError, error, refetch, isFetching } = useQuery({
     queryKey: ["expenses"],
     queryFn: async () => {
-      const res = await fetch(`${API}/expenses`);
+      const res = await fetch(`${API}/expenses`, { credentials: "include" });
       if (!res.ok) {
         const txt = await res.text().catch(() => "");
         throw new Error(`HTTP ${res.status}: ${txt || res.statusText}`);
@@ -74,6 +80,26 @@ export default function ExpensesListPage() {
               >
                 {e.title}
               </Link>
+
+              <div className="mt-1 text-xs text-muted-foreground">
+                {e.fileUrl ? (
+                  <a
+                    href={e.fileUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                    onClick={() => {
+                      // optional: keep list fresh after someone downloads/returns
+                      qc.invalidateQueries({ queryKey: ["expenses"] });
+                    }}
+                  >
+                    Download receipt
+                  </a>
+                ) : (
+                  <span className="italic">Receipt not uploaded</span>
+                )}
+              </div>
+
               <span className="tabular-nums">#{e.amount}</span>
             </li>
           ))}

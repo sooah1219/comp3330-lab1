@@ -56,3 +56,9 @@ Lab 9
 - Server-side auth with SDK :Moved the OAuth/OIDC flow to the backend (Hono). The server calls 'login()' → redirects to Kinde, then 'handleRedirectToApp()' on '/api/auth/callback' to validate the code, verify state/PKCE, and store tokens via a SessionManager.
 - cookie vs localStorage : Tokens are kept in HTTPOnly cookies (set in the server), protecting them from XSS and enabling same-origin credential flow through the Vite proxy. Avoids exposing access/refresh tokens to frontend JavaScript.
 - SDK simplified URL construction, discovery (issuer/keys), code ↔ token exchange, refresh token rotation, and user profile retrieval ('getUserProfile'). Also centralizes logout so both app session and IdP session can be cleared.
+
+Lab 10
+
+- Used AWS S3 with a private bucket; configured CORS to allow browser uploads from http://localhost:5173.
+- Upload flow worked after I understood the 3-step sequence: (1) get signed URL, (2) upload file directly to S3, (3) update expense with fileKey.
+- Learned that only the S3 object key is stored in Postgres, and the backend must re-sign for secure downloads.
