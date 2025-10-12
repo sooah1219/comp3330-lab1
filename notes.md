@@ -62,3 +62,10 @@ Lab 10
 - Used AWS S3 with a private bucket; configured CORS to allow browser uploads from http://localhost:5173.
 - Upload flow worked after I understood the 3-step sequence: (1) get signed URL, (2) upload file directly to S3, (3) update expense with fileKey.
 - Learned that only the S3 object key is stored in Postgres, and the backend must re-sign for secure downloads.
+
+Lab 11
+
+- Core polish: spinners on load, empty state panel, inline error with Retry. - Optimistic add/delete: instant UI updates + rollback on failure.
+- Optional extras implemented: - Skeleton rows during initial load.
+- Inline amount validation with helper text.
+- Toast notifications on add/delete (auto-dismiss, accessible).
