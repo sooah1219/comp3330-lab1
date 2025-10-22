@@ -69,3 +69,7 @@ Lab 11
 - Optional extras implemented: - Skeleton rows during initial load.
 - Inline amount validation with helper text.
 - Toast notifications on add/delete (auto-dismiss, accessible).
+
+Lab 12
+
+- I followed all the steps from the Lab 12 assignment carefully, but when I copied and pasted the provided code, several errors appeared and I had to make quite a few changes. Although I was able to deploy successfully in the end, the frontend doesn’t seem to be connected properly, so I can’t see the frontend page.
